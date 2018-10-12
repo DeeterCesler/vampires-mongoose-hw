@@ -97,19 +97,36 @@ Vampire.collection.insertMany(vampireArray, (err, data) => {
 //         console.log(data);
 //     }
 // });
-
-// Vampire.deleteMany({}, (err, data) =>{
+/////////////////////////////////////////////////
+// ### Select by exists or does not exist
+// Vampire.find({title: {$exists: true}}, (err, data) => {
 //     if(err){
 //         console.log(err);
 //     } else {
 //         console.log(data);
 //     }
 // });
-// mongoose.connection.close();
-
-/////////////////////////////////////////////////
-// ### Select by exists or does not exist
-
+// Vampire.find({victims: {$exists: false}}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// });
+// Vampire.find({$and: [{title: {$exists: true}}, {victims: {$exists: false}}]}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// });
+Vampire.find({victims: {$gt: 1000}}, (err, data) => {
+    if(err){
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});
 /////////////////////////////////////////////////
 // ### Select with OR
 
@@ -142,6 +159,21 @@ Vampire.collection.insertMany(vampireArray, (err, data) => {
 //## Negative Selection
 
 /////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
+Vampire.deleteMany({}, (err, data) =>{
+    if(err){
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});
+
+// mongoose.connection.close();
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+
 
 mongoose.connection.on("connected", () => {
     console.log(`Mongoose connected to ${connectionString}`);
