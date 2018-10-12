@@ -1,0 +1,1 @@
+const Vampire = require("./models/vampire")

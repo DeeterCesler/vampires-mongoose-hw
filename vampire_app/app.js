@@ -1,11 +1,12 @@
 // 1. Require your node modules
-
+const mongoose = require("mongoose");
 // 2. Require your model (and possibly your extra data source);
-
+const Vampire = require("./models/vampire")
 // 3. Connect your database and collection name
-
+const vampireArray = require("./populateVampires");
 // 4. Open your mongoose connection
-
+const connectionString = "mongodb://localhost/test";
+mongoose.connect(connectionString);
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
 
@@ -57,3 +58,15 @@
 //## Negative Selection
 
 /////////////////////////////////////////////////
+
+mongoose.connection.on("connected", () => {
+    console.log(`Mongoose connected to ${connectionString}`);
+});
+
+mongoose.connection.on("disconnected", () => {
+    console.log(`Mongoose is disconnected`);
+});
+
+mongoose.connection.on("error", (err) => {
+    console.log(err, `Mongoose error`);
+});
