@@ -19,8 +19,8 @@ Vampire.collection.insertMany(vampireArray, (err, data) => {
     if(err){
         console.log("added vampire data");
     } else {
-        console.log(data);
-        Vampire.find({name:"Dracula"});;
+        // console.log(data);
+        // Vampire.find({name:"Dracula"});;
     }
 });
 // ### Add some new vampire data
@@ -63,7 +63,7 @@ Vampire.collection.insertMany(vampireArray, (err, data) => {
 //         console.log("WAMEN");
 //         console.log(data);
 //     }
-// // });
+// });
 // Vampire.find({victims: {$gt: 500}}, (err, data) => {
 //     if(err){
 //         console.log(err);
@@ -163,7 +163,35 @@ Vampire.collection.insertMany(vampireArray, (err, data) => {
 // });
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
-
+// Vampire.find({$or: [{"loves":"frilly shirtsleeves"}, {"loves": "frilly collars"}]}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log("==========SON===========");
+//         console.log(data);
+//     }
+// })
+// Vampire.find({"loves":"brooding"}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// })
+// Vampire.find({$or: [{"loves":"appearing innocent"}, {"loves": 'trickery'},{"loves": "lurking in rotting mansions"},{"loves":"R&B music"}]}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// })
+// Vampire.find({$and: [{"loves":"fancy cloaks"}, {$nin: [{"loves": 'top hats'},{"loves": "virgin blood"}]}]}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// })
 /////////////////////////////////////////////////
 //### Negative Selection
 
@@ -192,13 +220,15 @@ Vampire.collection.insertMany(vampireArray, (err, data) => {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
-// Vampire.deleteMany({}, (err, data) =>{
-//     if(err){
-//         console.log(err);
-//     } else {
-//         console.log(data);
-//     }
-// });
+console.log("=≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠")
+Vampire.deleteMany({}, (err, data) =>{
+    if(err){
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});
+console.log("=≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠")
 
 // mongoose.connection.close();
 
