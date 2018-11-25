@@ -17,6 +17,7 @@ mongoose.connect(connectionString);
 // ### Add the vampire data that we gave you
 Vampire.collection.insertMany(vampireArray, (err, data) => {
     if(err){
+        console.log(err);
         console.log("added vampire data");
     } else {
         // console.log(data);
@@ -215,17 +216,33 @@ Vampire.collection.insertMany(vampireArray, (err, data) => {
 //         console.log(data);
 //     }
 // })
-Vampire.find({$not: {"victims": {$gt: 200}}}, (err, data) => {
-    if(err){
-        console.log(err);
-    } else {
-        console.log(data);
-    }
-})
+// Vampire.find({$not: {"victims": {$gt: 200}}}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// })
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
+
+// Vampire.findOneAndUpdate({"name": "Claudia"},{$set:{"name":"Eve","portrayed_by":"Tilda Swinton"}}, (err, data)=>{
+//     if(err){
+//         console.log(err)
+//     }else{
+//         console.log("heyyyy")
+//         console.log(data)
+//     }
+// });
+// Vampire.findOneAndUpdate({"gender": "m"},{$set:{"name":"Guy Man","is_actually":"were-lizard"}},(err, data)=>{
+//     if(err){
+//         console.log(err)
+//     }else{
+//         console.log(data)
+//     }
+// });
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -249,13 +266,13 @@ Vampire.find({$not: {"victims": {$gt: 200}}}, (err, data) => {
 /////////////////////////////////////////////////
 
 console.log("=≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠")
-Vampire.deleteMany({}, (err, data) =>{
-    if(err){
-        console.log(err);
-    } else {
-        console.log(data);
-    }
-});
+// Vampire.deleteMany({}, (err, data) =>{
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// });
 console.log("=≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠")
 
 // mongoose.connection.close();
