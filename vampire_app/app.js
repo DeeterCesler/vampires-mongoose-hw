@@ -15,15 +15,15 @@ mongoose.connect(connectionString);
 /////////////////////////////////////////////////
 // INSERT USING MONGOOSE
 // ### Add the vampire data that we gave you
-Vampire.collection.insertMany(vampireArray, (err, data) => {
-    if(err){
-        console.log(err);
-        console.log("added vampire data");
-    } else {
-        // console.log(data);
-        // Vampire.find({name:"Dracula"});;
-    }
-});
+// Vampire.collection.insertMany(vampireArray, (err, data) => {
+//     if(err){
+//         console.log(err);
+//         console.log("added vampire data");
+//     } else {
+//         console.log(data);
+//         Vampire.find({name:"Dracula"});;
+//     }
+// });
 // ### Add some new vampire data
 // Vampire.create({name: "Deeter", hair_color: "brown", victims: 0,  gender: "m"}, (err, newVamp) => {
 //     if(err){
@@ -247,6 +247,49 @@ Vampire.collection.insertMany(vampireArray, (err, data) => {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## UPDATE
+// Vampire.findOneAndUpdate({"name": "Guy Man"},{$set:{"gender":"f"}},(err, data)=>{
+//     if(err){
+//         console.log(err)
+//     }else{
+//         console.log(data)
+//     }
+// });
+// Vampire.findOneAndUpdate({"name": "Eve"},{$set:{"gender":"m"}},(err, data)=>{
+//     if(err){
+//         console.log(err)
+//     }else{
+//         console.log(data)
+//     }
+// });
+// Vampire.findOneAndUpdate({"name": "Guy Man"},{$set:{"hates": ["clothes", "clothes"]}},(err, data)=>{
+//     if(err){
+//         console.log("=========DOGGIES==========")
+//         console.log(err)
+//     }else{
+//         console.log(data)
+//     }
+// });
+Vampire.findOneAndUpdate({"name": "Guy Man"},{$push:{"hates":[..."alarm clocks","jackalopes"]}},(err, data)=>{
+    if(err){
+        console.log(err)
+    }else{
+        console.log(data)
+    }
+});
+Vampire.findOneAndUpdate({"name": "Eve"},{$rename:{"name":"moniker"}},(err, data)=>{
+    if(err){
+        console.log(err)
+    }else{
+        console.log(data)
+    }
+});
+Vampire.updateMany({"gender": "f"},{$set:{"gender":"fems"}},(err, data)=>{
+    if(err){
+        console.log(err)
+    }else{
+        console.log(data)
+    }
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
