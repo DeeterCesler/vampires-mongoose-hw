@@ -294,7 +294,22 @@ Vampire.updateMany({"gender": "f"},{$set:{"gender":"fems"}},(err, data)=>{
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REMOVE
-
+Vampire.findOneAndRemove({"hair_color":"brown"},(err,data)=>{
+    if(err){
+        console.log(err)
+    }else{
+        console.log("REMOVED BROWNIE")
+        console.log(data)
+    }
+})
+Vampire.remove({"eye_color":"blue"},(err,data)=>{
+    if(err){
+        console.log(err)
+    }else{
+        console.log("REMOVED BLUE-IES")
+        console.log(data)
+    }
+})
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
@@ -309,16 +324,16 @@ Vampire.updateMany({"gender": "f"},{$set:{"gender":"fems"}},(err, data)=>{
 /////////////////////////////////////////////////
 
 console.log("=≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠")
-// Vampire.deleteMany({}, (err, data) =>{
-//     if(err){
-//         console.log(err);
-//     } else {
-//         console.log(data);
-//     }
-// });
+Vampire.deleteMany({}, (err, data) =>{
+    if(err){
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});
 console.log("=≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠≠")
 
-// mongoose.connection.close();
+mongoose.connection.close();
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
