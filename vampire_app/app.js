@@ -194,6 +194,34 @@ Vampire.collection.insertMany(vampireArray, (err, data) => {
 // })
 /////////////////////////////////////////////////
 //### Negative Selection
+// Vampire.find({$and: [{"loves":"ribbons"}, {$nin: [{"eye_color": 'brown'}]}]}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// })
+// Vampire.find({$nin: [{"location": 'Rome, Italy'}]}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// })
+// Vampire.find({$nin: [{"loves": ["fancy cloaks", "frilly shirtsleeves", "appearing innocent", "being tragic", "brooding"]},]}, (err, data) => {
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(data);
+//     }
+// })
+Vampire.find({$not: {"victims": {$gt: 200}}}, (err, data) => {
+    if(err){
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+})
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
